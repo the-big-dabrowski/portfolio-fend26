@@ -1,9 +1,8 @@
 :root {
-  --bg: #0b0b0c;
-  --fg: #f2f1ec;
-  --muted: #9a9a94;
-  --accent: #6e9fff;
-  --rule: #232324;
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --muted: #6b6b6b;
+  --rule: #e6e6e6;
 
   --font-display: "Helvetica Neue", Arial, sans-serif;
   --font-body: "Helvetica Neue", Arial, sans-serif;
@@ -26,9 +25,8 @@ a {
   text-decoration: none;
 }
 
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--accent);
+a:focus-visible {
+  outline: 2px solid var(--fg);
   outline-offset: 3px;
 }
 
@@ -38,156 +36,133 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 32px;
+  padding: 24px 40px;
   border-bottom: 1px solid var(--rule);
 }
 
 .logo {
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: 1.3rem;
 }
 
 .topnav {
   display: flex;
-  gap: 24px;
+  gap: 28px;
 }
 
 .topnav a {
-  font-size: 0.9rem;
-  color: var(--muted);
-  transition: color 0.15s ease;
+  font-size: 0.95rem;
+  color: var(--fg);
+  transition: opacity 0.15s ease;
 }
 
 .topnav a:hover {
-  color: var(--fg);
+  opacity: 0.6;
 }
 
 /* Hero */
 
 .hero {
-  max-width: 720px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: start;
+  gap: 40px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 96px 24px 64px;
-  text-align: center;
+  padding: 64px 40px 96px;
 }
 
-.hero-media {
-  margin-bottom: 32px;
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
-.hero-icon {
-  width: 64px;
-  height: 64px;
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-.eyebrow {
-  font-size: 0.85rem;
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.badge-dark {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.badge-name {
+  font-size: 0.95rem;
   color: var(--muted);
-  margin: 0 0 20px;
 }
 
 .hero-headline {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 6vw, 4.2rem);
-  line-height: 1.05;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin: 0 0 24px;
-}
-
-.hero-sub {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--muted);
-  max-width: 42ch;
-  margin: 0 auto;
-}
-
-/* Works */
-
-.works {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 48px 24px 96px;
-}
-
-.works-label {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin: 0 0 8px;
-}
-
-.work-list {
-  list-style: none;
   margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--rule);
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.92;
+  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
 }
 
-.work-item {
-  border-bottom: 1px solid var(--rule);
+.line {
+  display: block;
 }
 
-.work-item a {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 4px 20px;
-  padding: 24px 0;
-  transition: opacity 0.15s ease;
+.line-fill {
+  color: var(--fg);
 }
 
-.work-item a:hover {
-  opacity: 0.75;
+.line-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--fg);
 }
 
-.work-number {
-  font-size: 0.85rem;
-  color: var(--muted);
+.tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.9rem;
 }
 
-.work-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  grid-column: 2;
+.hero-media {
+  width: 100%;
 }
 
-.work-desc {
-  grid-column: 2;
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--muted);
-  max-width: 50ch;
-}
-
-/* Footer */
-
-.footer {
-  padding: 24px 32px 40px;
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--muted);
+.hero-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  object-fit: cover;
 }
 
 /* Responsive */
 
-@media (max-width: 480px) {
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 24px 64px;
+  }
+
+  .hero-media {
+    order: -1;
+  }
+
   .topbar {
-    padding: 20px;
+    padding: 20px 24px;
   }
 
   .topnav {
-    gap: 16px;
-  }
-
-  .hero {
-    padding: 64px 20px 48px;
-  }
-
-  .work-item a {
-    grid-template-columns: 28px 1fr;
-    gap: 4px 12px;
-    padding: 20px 0;
+    gap: 18px;
   }
 }
 
